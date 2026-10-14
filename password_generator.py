@@ -1,7 +1,31 @@
-import random
-import string
-import secrets
+# 🔐 Password Generator - Roldán Edition
+# Autor: Mirko David Schiavi
+# GitHub: https://github.com/mirkoschi22-design
+# Ubicación: Roldán, Santa Fe, Argentina
+# Año: 2026
+# Licencia: MIT License
 
+import secrets
+import string
+
+print("🔐 GENERADOR DE CONTRASEÑAS SEGURAS")
+print("By Mirko David Schiavi\n")
+
+try:
+    longitud = int(input("Longitud de la contraseña (ej: 16): "))
+    cantidad = int(input("Cuántas contraseñas querés generar (ej: 5): "))
+
+    caracteres = string.ascii_letters + string.digits + string.punctuation
+
+    print("\n--- CONTRASEÑAS GENERADAS ---\n")
+    for i in range(cantidad):
+        password = ''.join(secrets.choice(caracteres) for _ in range(longitud))
+        print(f"{i+1}. {password}")
+
+    print("\n✅ ¡Hecho! Copiá la que más te guste.")
+
+except ValueError:
+    print("❌ Tenés que poner un número.")
 def generar_password(longitud=16, mayus=True, numeros=True, simbolos=True):
     """Generador de contraseñas seguras - By Mirko Schiavi"""
     caracteres = string.ascii_lowercase
